@@ -67,12 +67,7 @@ lm.utils.copy( lm.items.Stack.prototype, {
 		}
 
 		if( this.contentItems.length > 0 ) {
-			initialItem = this.contentItems[ this.config.activeItemIndex || 0 ];
-
-			if( !initialItem ) {
-				throw new Error( 'Configured activeItemIndex out of bounds' );
-			}
-
+			initialItem = this.contentItems[Math.min(this.config.activeItemIndex, this.contentItems.length - 1)];
 			this.setActiveContentItem( initialItem );
 		}
 	},
